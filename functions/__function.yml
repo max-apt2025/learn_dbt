@@ -1,0 +1,19 @@
+functions:
+  - name: safe_divide
+    description: divides with a non zero denominator
+    arguments:                  
+      - name: numerator          
+        data_type: number
+      - name: denominator
+        data_type: number
+    returns:                    
+      data_type: number        
+  - name: customer_email
+    description: creates customer email from firstname and id
+    arguments:                  
+      - name: first_name          
+        data_type: varchar
+      - name: id
+        data_type: number(38,0)
+    returns:                    
+      data_type: varchar  
