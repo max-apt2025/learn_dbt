@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ecommerce
+    description: contains customers and order transaction on the ecommerce website.
+    tables:
+      - name: customers
+        description: customer each record represents a single customer and includes details about their location and geographic information.
+        columns:
+          - name: customer_id
+            description: uniqie id of the customer
+          - name: customer_unique_id
+            description: most unique id of the customer is is gid
+          - name: customer_city
+            description: city of the customer
+      - name: orders
+        description: The table contains records of customer orders, specifically those placed through the e-commerce platform.
+        columns:
+          - name: order_id
+            description: unique id for each order
+          - name: customer_id
+            description: uniqie id of the customer
+          - name: order_approved_at
+            description: datetime when the order was approved.
+          - name: order_status
+            description: order status
+          - name: order_purchase_timestamp
+            description: timestamp when the order has been placed
+      - name: orderitems
+      - name: payments
+        description: The table contains records of payment transactions, specifically payment methods and amounts.
+        columns:
+          - name: order_id
+            description: unique id for each order
+          - name: payment_sequential
+            description: payment sequence
+          - name: payment_type
+            description: type of the payment made.
+          - name: payment_value
+            description: values of the payment.
+      - name: products
+      - name: sellers
