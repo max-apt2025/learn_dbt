@@ -12,8 +12,7 @@ transformed as (
         id as customer_id,
         first_name ,
         last_name ,
-        first_name ||' ' || last_name as full_name,
-    {{ function('customer_email') }}(first_name,id) as customer_email
+        first_name ||' ' || last_name as full_name
 
     from source
 

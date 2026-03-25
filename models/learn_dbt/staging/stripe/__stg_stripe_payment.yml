@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_stripe_payment
+    description: "The table contains records of payment transactions."
+    columns:
+      - name: payment_id
+        data_type: number
+        description: "payment id for each transction"
+        data_tests:
+        - unique
+        - not_null
+      - name: order_id
+        data_type: number
+        description: "unique if for eqch payment transaction"
+        data_tests:
+        - not_null
+
+      - name: paymentmethod
+        data_type: varchar
+        description: "method use to pay"
+        data_tests:
+        - not_null
+        - accepted_values:
+            values: ['credit_card','coupon','gift_card','bank_transfer']
+
+      - name: payment_status
+        data_type: varchar
+        description: "status of each payment"
+
+      - name: payment_amount
+        data_type: number
+        description: ""
+
+      - name: payment_created
+        data_type: date
+        description: ""
+
+      - name: _batched_at
+        data_type: timestamp_ntz
+        description: ""
