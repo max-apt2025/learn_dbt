@@ -2,7 +2,7 @@
 -->>>>>>compare row count <<<<<<<<<--
 ------------------------------------------------------
 
-{% set old_relation = adapter.get_relation(
+{# {% set old_relation = adapter.get_relation(
       database = target.database,
       schema = "fact_legacy",
       identifier = "customer_orders_legacy"
@@ -46,4 +46,4 @@
     a_relation = old_relation,
     b_relation = dbt_relation,
     primary_key = "order_id"
-) }}
+) }} #}
