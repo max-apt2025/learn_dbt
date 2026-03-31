@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: colne of the source table in snowflake
+    database: raw
+    tables:
+      - name: customers
+        description: The table contains customer information. Each record represents a single customer and includes details about their name.
+        columns:
+            - name: id
+              description: unique id for the customer.
+              data_type: number
+              data_tests:
+                - not_null
+                - unique
+            - name: first_name
+              description: First name of the coustomer.
+              data_type: varchar
+            - name: last_name
+              description: Last name of the customer.
+              data_type: varchar
+      
+      - name: orders
+        description: The table contains records of customer orders. Each record represents a single order and includes details about the user who placed the order and the order's status.
+        columns:
+            - name: id
+              description: unique id of the order.
+              data_type: number
+              data_tests:
+                - unique
+                - not_null
+            - name: user_id
+              description:  unique user id of the user.
+              data_type: number
+              data_tests:
+              - unique
+              - not_null
+            - name: order_date
+              description: order date.
+              data_type: date
+            - name: status
+              description: order status.
+              data_type: varchar
+            - name: _etl_loaded_at
+              description:  loaded timestamp.
+              data_type: timestamp_ntz
+
+      
