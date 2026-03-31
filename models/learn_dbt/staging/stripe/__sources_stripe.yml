@@ -2,6 +2,35 @@ version: 2
 
 sources:
   - name: stripe
-    database: raw
+    description: "Mirror of the stripe payments table from snowflake database."
     tables:
       - name: payment
+        description: "The table contains records of payment transactions. Each record represents a single payment and includes details about the payment method, status, and amount."
+        columns:
+          - name: id
+            data_type: number
+            description: "unique payment identifier of the trsanaction"
+            data_tests:
+              - unique
+              - not_null
+          - name: orderid
+            data_type: number
+            description: "unique order id of the transaction"
+            data_tests:
+              - unique
+              - not_null
+          - name: paymentmethod
+            data_type: varchar
+            description: "method of payment used for the transaction"
+          - name: status
+            data_type: varchar
+            description: "final status of the payment"
+          - name: amount
+            data_type: number
+            description: "debited payment amount"
+          - name: created
+            data_type: date
+            description: "Payment created date"
+          - name: _batched_at
+            data_type: timestamp_ntz
+            description: "record inserted timestamp."
