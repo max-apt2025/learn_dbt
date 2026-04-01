@@ -8,22 +8,20 @@ models:
         data_type: number
         description: "payment id for each transction"
         data_tests:
-        - unique
-        - not_null
+          - unique
+          - not_null
       - name: order_id
         data_type: number
         description: "unique if for eqch payment transaction"
         data_tests:
-        - not_null
-
+          - not_null
       - name: paymentmethod
         data_type: varchar
         description: "method use to pay"
         data_tests:
-        - not_null
         - accepted_values:
-            values: ['credit_card','coupon','gift_card','bank_transfer']
-
+            arguments:
+              values: ['credit_card', 'coupon', 'gift_card', 'bank_transfer']
       - name: payment_status
         data_type: varchar
         description: "status of each payment"
