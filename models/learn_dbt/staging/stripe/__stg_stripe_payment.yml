@@ -22,7 +22,7 @@ models:
         data_tests:
         - not_null
         - accepted_values:
-            values: ['credit_card','coupon','gift_card','bank_transfer']
+            arguments: ['credit_card','coupon','gift_card','bank_transfer']
 
       - name: payment_status
         data_type: varchar
