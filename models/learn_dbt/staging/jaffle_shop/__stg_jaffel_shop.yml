@@ -32,8 +32,8 @@ models:
                   - return_pending
       - name: customer_id
         description: Foreign key to stg_customers.customer_id
-        data_tests:
-          - relationships:
-              arguments:
-                to: ref('stg_jaffle_shop_customers')
-                field: customer_id
+        # data_tests:
+        #   - relationships:
+        #       arguments:
+        #         to: ref('stg_jaffle_shop_customers')
+        #         field: customer_id

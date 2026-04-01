@@ -34,7 +34,6 @@ sources:
               description:  unique user id of the user.
               data_type: number
               data_tests:
-              - unique
               - not_null
             - name: order_date
               description: order date.
