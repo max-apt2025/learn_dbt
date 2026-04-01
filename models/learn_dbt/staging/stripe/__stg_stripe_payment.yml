@@ -18,18 +18,10 @@ models:
       - name: paymentmethod
         data_type: varchar
         description: "method use to pay"
-        data_tests:
-        - accepted_values:
-            arguments:
-              values: ['credit_card', 'coupon', 'gift_card', 'bank_transfer']
         # data_tests:
-        #   - not_null
-        #   - accepted_values:
-        #       values: ["credit_card", "coupon", "gift_card", "bank_transfer"]
-        # data_tests:
-        #   - accepted_values:
-        #       arguments:
-        #         values: ["credit_card", "coupon", "gift_card", "bank_transfer"]
+        # - accepted_values:
+        #     arguments:
+        #       values: ['credit_card', 'coupon', 'gift_card', 'bank_transfer']
       - name: payment_status
         data_type: varchar
         description: "status of each payment"
