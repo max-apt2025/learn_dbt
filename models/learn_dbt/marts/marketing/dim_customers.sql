@@ -9,7 +9,9 @@ orders as (
     select * from {{ ref('stg_jaffle_shop_orders') }}
 
 ),
-
+employees as (
+    select * from {{ ref('employees') }}
+),
 customer_orders as (
 
     select
@@ -34,11 +36,14 @@ final as (
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         coalesce (customer_orders.number_of_orders, 0) 
-        as number_of_orders
+        as number_of_orders,
+        e.employee_id,
+        e.email as employee_email
 
     from customers
 
     left join customer_orders using (customer_id)
+    left join employees e on e.customer_id = customers.customer_id
 
 )
 

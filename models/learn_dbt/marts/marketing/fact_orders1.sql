@@ -27,5 +27,8 @@ order_payments as (
     left join order_payments using (order_id)
 )
 
-select * from final
+select 
+    count(*),
+    sum(amount) as total_amount
+ from final
 order by order_date desc
