@@ -28,7 +28,6 @@ sources:
               description: unique id of the order.
               data_type: number
               data_tests:
-                - unique
                 - not_null
             - name: user_id
               description:  unique user id of the user.

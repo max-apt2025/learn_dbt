@@ -1,0 +1,25 @@
+snapshots:
+  - name: orders_practicesnapshot
+    description: this is a orders snapshot created in practice.
+    relation: source('jaffle_shop','orders')
+    config:
+      database: analytics
+      schema: snapshots
+      unique_key: id
+      strategy: check
+      # updated_at: <column_name>
+      check_cols: all
+      # snapshot_meta_column_names: {<dictionary>}
+      hard_deletes: ignore
+      dbt_valid_to_current: "to_date('9999-12-31')"
+  - name: payments_practicesnapshot
+    description: this is payments snapshot created in practice.
+    relation: source('stripe','payment')
+    config: 
+      database: analytics
+      schema: snapshots
+      unique_key: id
+      strategy: timestamp
+      updated_at: _batched_at
+      hard_deletes: ignore
+      dbt_valid_to_current: "to_date('9999-12-31')"

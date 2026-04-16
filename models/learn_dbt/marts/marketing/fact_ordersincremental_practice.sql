@@ -1,11 +1,18 @@
-
 {{
     config(
-        materialized='incremental',
-        unique_key='order_id',
-        incremental_strategy = 'merge'
+        materialized="incremental",
+        unique_key = "order_id",
+        incremental_strategy="microbatch",
+        event_time = "order_date",
+        batch_size = "day",
+        lookback = 3,
+        begin = "2026-01-01"
+        
+
+
     )
 }}
+
 with orders as  (
     select * from {{ ref ('stg_jaffle_shop_orders' )}}
 ),
@@ -35,11 +42,10 @@ order_payments as (
     left join order_payments using (order_id)
 )
 
-select * from final
-
+select *
+     from final
 
 {% if is_incremental() %}
-where
-order_date >= (select max(order_date) from {{this}})
+    -- this filter will only be applied on an incremental run
+    where order_date >= (select  dateadd('day',-1, max(order_date)) from {{ this }}) 
 {% endif %}
-order by order_date desc
