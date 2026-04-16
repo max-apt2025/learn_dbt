@@ -1,0 +1,9 @@
+version: 2
+seeds:
+  - name: employees
+    description: mapping files for the employee that has made the sale to the customer
+    columns:
+      - name: employee_id
+        description: unique id of the employee
+      - name: email
+        description: email fo the employee.
