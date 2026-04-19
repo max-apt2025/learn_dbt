@@ -7,3 +7,11 @@ seeds:
         description: unique id of the employee
       - name: email
         description: email fo the employee.
+  - name: transctiondescription
+    description:  transaction description upon orders statues
+    columns:
+      - name: order_status
+        description:  status of the orders
+      - name: transaction_description
+        description: description of the transactions
+        

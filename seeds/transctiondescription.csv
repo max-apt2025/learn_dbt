@@ -1,0 +1,6 @@
+order_status, transaction_description
+return_pending, orders in returnedstate
+placed, successful order placement
+completed, order completed
+returned, order returned
+shipped, shipped pending
