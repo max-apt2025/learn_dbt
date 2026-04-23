@@ -1,0 +1,29 @@
+exposures:
+  - name: orders_data
+    label: orders_data 
+    description: contains jaffle shop orders
+    type: notebook
+    url: https://tinyurl.com/jaffle-shop-reporting
+    maturity: high
+    owner: # supports 'name' and 'email' only
+      name: maxie
+      email: maxie@jaffashop.com
+    
+    depends_on:
+      - ref('fact_orders1')
+    #label: "orders reporting exposure"
+
+  - name: customer_data
+    label: customer_data 
+    description: contains jaffle shop customer data
+    type: notebook
+    url: https://tinyurl.com/jaffle-shop-reporting
+    maturity: high
+    owner: # supports 'name' and 'email' only
+      name: maxie
+      email: maxie@jaffashop.com
+    
+    depends_on:
+      - ref('dim_customers')
+      
+    #label: "customer information exposure!"
