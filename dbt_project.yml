@@ -34,15 +34,9 @@ clean-targets: # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  # Be sure to namespace your model configs to your project name
   learn_dbt:
-    # This configures models found in models/events/
-    staging:
-      +enabled: true
-      +materialized: view
     marts:
-      +materialized: table
-      marketing:
-        +materialized: table
-      intermediate:
-        +materialized: ephemeral
+      +materialized: 'table'
+    staging:
+      +materialized: 'view'
+      
