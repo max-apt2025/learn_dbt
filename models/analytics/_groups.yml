@@ -1,0 +1,20 @@
+groups:
+  - name: finance
+    description: "All models owned by the Finance team."
+    owner:
+      email: finance@jaffleshop.com
+    config:
+      meta:
+        data_owner: Finance team
+        cost_center: finance
+        data_classification: sensitive
+
+  - name: product
+    description: "All models owned by the product team."
+    owner:
+      email: product@jaffleshop.com
+    config:
+      meta:
+        data_owner: product team
+        cost_center: product
+        data_classification: open        
